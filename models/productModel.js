@@ -1,14 +1,14 @@
-const { getConnection, sql } = require("../config/dbConfig");
+const { connection, sql } = require("../config/dbConfig");
 
 class ProductModel {
   static async getAll() {
-    const pool = await getConnection();
+    const pool = await connection();
     const result = await pool.request().query("SELECT * FROM Products");
     return result.recordset;
   }
 
   static async getById(id) {
-    const pool = await getConnection();
+    const pool = await connection();
     const result = await pool.request()
       .input("id", sql.Int, id)
       .query("SELECT * FROM Products WHERE id = @id");
@@ -16,7 +16,7 @@ class ProductModel {
   }
 
   static async create(name, description, price, stock) {
-    const pool = await getConnection();
+    const pool = await connection();
 
     const descVal = description !== undefined ? description : null;
     const stockVal = stock !== undefined ? stock : null;
@@ -34,7 +34,7 @@ class ProductModel {
   }
 
   static async update(id, name, description, price, stock) {
-    const pool = await getConnection();
+    const pool = await connection();
 
     const descVal = description !== undefined ? description : null;
     const stockVal = stock !== undefined ? stock : null;
@@ -53,7 +53,7 @@ class ProductModel {
   }
 
   static async delete(id) {
-    const pool = await getConnection();
+    const pool = await connection();
     await pool.request().input("id", sql.Int, id).query("DELETE FROM Products WHERE id=@id");
     return { message: "Product deleted successfully" };
   }

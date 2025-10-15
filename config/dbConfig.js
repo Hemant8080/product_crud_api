@@ -12,7 +12,7 @@ const config = {
   },
 };
 
-async function getConnection() {
+async function connection() {
   try {
     const pool = await sql.connect(config);
     return pool;
@@ -22,4 +22,4 @@ async function getConnection() {
   }
 }
 
-module.exports = { sql, getConnection };
+module.exports = { sql, connection };
