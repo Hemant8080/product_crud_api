@@ -20,6 +20,7 @@ CREATE TABLE Products (
   stock INT NULL DEFAULT 0,
   created_at DATETIME2 DEFAULT SYSDATETIME()
 );
+```
 
 
 ### Endpoints
