@@ -2,8 +2,8 @@
 ```
 PORT=5000
 DB_USER=your_db_user
-DB_PASSWORD=your_password
-DB_SERVER=localhost\SQLEXPRESS
+DB_PASSWORD=your_db_password
+DB_SERVER=server_name
 DB_DATABASE=database_name
 ```
 
